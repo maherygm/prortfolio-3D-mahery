@@ -18,41 +18,25 @@ import { Bureau } from "../../models/Bureau";
 import { WorkSpace } from "../../models/WorkSpace";
 import mysannimation from "./work.json";
 import annim from "./annim.json";
+import mgan from "./mgznimz.json";
 import { Working } from "../../models/Working";
 import Main from "./content/Main/Main";
 import "./__home.css";
+import { useEffect } from "react";
+import Aos from "aos";
 const Home = () => {
-  const sheet = getProject("Fly Througth", { state: mysannimation }).sheet("Scene");
+  const sheet = getProject("Fly Througth", { state: mgan }).sheet("Scene");
+  Aos.init();
   return (
     <>
       <Canvas className="canvas" gl={{ preserveDrawingBuffer: true }}>
-        <ScrollControls pages={5} damping={1} maxSpeed={1}>
+        <ScrollControls pages={8} damping={1} maxSpeed={1}>
           <SheetProvider sheet={sheet}>
             <Scenne />
           </SheetProvider>
-          {/* <Scroll html>
-            <div className="el">
-              <Main />
-            </div>
-            <div className="el">
-              <Main />
-            </div>
-            <div className="el">
-              <Main />
-            </div>
-            <div className="el">
-              <Main />
-            </div>
-            <div className="el">
-              <Main />
-            </div>
-            <div className="el">
-              <Main />
-            </div>
-            <div className="el">
-              <Main />
-            </div>
-          </Scroll> */}
+          <Scroll html>
+            <Main />
+          </Scroll>
         </ScrollControls>
       </Canvas>
     </>
